@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/eventsFragment">
+
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="com.example.plando.ui.events.EventsFragment"
+        android:label="EventsFragment"
+        tools:layout="@layout/fragment_events">
+        <action
+            android:id="@+id/action_listFragment_to_detailsFragment"
+            app:destination="@id/detail_nav_graph">
+
+            <argument
+                android:name="editableEvent"
+                app:argType="com.example.plando.models.Event" />
+        </action>
+    </fragment>
+    <navigation
+        android:id="@+id/detail_nav_graph"
+        app:startDestination="@id/detailsFragment">
+        <fragment
+            android:id="@+id/detailsFragment"
+            android:name="com.example.plando.ui.details.DetailsFragment"
+            android:label="DetailsFragment"
+            tools:layout="@layout/fragment_details">
+            <action
+                android:id="@+id/action_detailsFragment_to_mapFragment"
+                app:destination="@id/mapFragment">
+
+                <argument
+                    android:name="coord"
+                    app:argType="com.example.plando.models.Coord"
+                    app:nullable="true" />
+            </action>
+
+            <argument
+                android:name="editableEvent"
+                app:argType="com.example.plando.models.Event" />
+        </fragment>
+        <fragment
+            android:id="@+id/mapFragment"
+            android:name="com.example.plando.ui.map.MapFragment"
+            android:label="MapFragment">
+
+            <argument
+                android:name="coord"
+                app:argType="com.example.plando.models.Coord"
+                app:nullable="true" />
+        </fragment>
+    </navigation>
+
+</navigation>

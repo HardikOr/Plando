@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Plando</string>
+    <string name="details_name">Name</string>
+    <string name="details_description">Description</string>
+    <string name="details_date">Date</string>
+    <string name="details_location">Location</string>
+    <string name="details_location_alias">Location Alias</string>
+    <string name="details_weather">Weather</string>
+    <string name="button_update_weather">Update Weather</string>
+    <string name="button_date_picker">Pick a date</string>
+    <string name="button_location_picker">Pick on a map</string>
+
+    <string name="location_template">∘ %s</string>
+    <string name="refresh_weather">Refresh weather</string>
+
+    <string name="details_checkbox_attended">Attended</string>
+    <string name="rv_item_attended">Attended</string>
+
+    <string name="icons_base_url">https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/1st%20Set%20-%20Color/</string>
+    <string name="api_base_url">https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/</string>
+</resources>

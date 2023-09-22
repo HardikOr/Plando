@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.plando.binding.StaticBindingAdapters.Rule" />
+
+        <variable
+            name="viewModel"
+            type="com.example.plando.ui.details.DetailsViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/name_layout"
+                style="@style/TextInputLayoutStyle"
+                android:hint="@string/details_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:validation="@{Rule.NOT_EMPTY}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.editEvent.name}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/description_layout"
+                style="@style/TextInputLayoutStyle"
+                android:hint="@string/details_description"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:minHeight="100dp"
+                    android:text="@={viewModel.editEvent.description}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/date_layout"
+                style="@style/TextInputLayoutStyle"
+                android:layout_marginEnd="12dp"
+                android:hint="@string/details_date"
+                app:layout_constraintEnd_toStartOf="@+id/button_date_picker"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/description_layout"
+                app:validation="@{Rule.NOT_EMPTY}">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="@{viewModel.editDate.toDMYString()}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_date_picker"
+                style="@style/DetailsMaterialButtonStyle"
+                android:text="@string/button_date_picker"
+                app:icon="@drawable/icon_calendar"
+                app:layout_constraintBottom_toBottomOf="@+id/date_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/date_layout" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/location_alias_layout"
+                style="@style/TextInputLayoutStyle"
+                android:layout_marginEnd="12dp"
+                android:hint="@string/details_location_alias"
+                app:layout_constraintEnd_toStartOf="@+id/button_location_picker"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/date_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/location_alias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.editEvent.locationAlias}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_location_picker"
+                style="@style/DetailsMaterialButtonStyle"
+                android:text="@string/button_location_picker"
+                app:icon="@android:drawable/ic_dialog_map"
+                app:layout_constraintBottom_toBottomOf="@+id/location_alias_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/location_alias_layout" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/location_layout"
+                style="@style/TextInputLayoutStyle"
+                android:hint="@string/details_location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/location_alias_layout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="@{viewModel.editLocationString}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/ltlg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="@{viewModel.editLocation.toStringWithSpace()}"
+                app:autoVisiilbe="@{ltlg.text.toString().isEmpty()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/location_layout"
+                tools:text="Coord" />
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkbox_attended"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@={viewModel.editEvent.hasAttended}"
+                android:elevation="2dp"
+                android:text="@string/details_checkbox_attended"
+                android:textSize="20sp"
+                android:theme="@style/CheckBoxTheme"
+                app:layout_constraintBottom_toBottomOf="@+id/weather_info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/weather_info"
+                app:layout_constraintTop_toTopOf="@+id/weather_info"
+                app:thumbTint="@color/palette_4" />
+
+            <LinearLayout
+                android:id="@+id/weather_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="12dp"
+                android:background="@drawable/card_background"
+                android:elevation="1dp"
+                android:orientation="horizontal"
+                app:autoVisiilbe="@{weatherText.text.toString().isEmpty()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ltlg">
+
+                <ImageView
+                    android:id="@+id/weather_icon"
+                    android:layout_width="62dp"
+                    android:layout_height="62dp"
+                    android:layout_margin="12dp"
+                    app:iconName="@{viewModel.weather.icon}" />
+
+                <TextView
+                    android:id="@+id/weather_text"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="center"
+                    android:text="@{viewModel.weather.conditions}"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Cloudyyyyyyyyyyyyyyyyyy" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,26 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Plando" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:statusBarColor">@color/palette_5_dark</item>
+        <!--        <item name="android:windowTranslucentStatus">true</item>-->
+        <item name="android:windowTranslucentNavigation">true</item>
+
+    </style>
+
+    <style name="Theme.Plando" parent="Base.Theme.Plando" />
+
+    <style name="WhiteToolBarIconsTheme" parent="ThemeOverlay.MaterialComponents.Toolbar.Primary">
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="DatePickerTheme" parent="ThemeOverlay.Material3.Dialog">
+        <item name="colorAccent">@color/palette_4</item>
+        <item name="colorPrimary">@color/palette_4</item>
+    </style>
+
+    <style name="CheckBoxTheme" parent="Widget.Material3.CompoundButton.CheckBox">
+        <item name="colorAccent">@color/palette_4</item>
+        <item name="colorPrimary">@color/palette_4</item>
+    </style>
+
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    
+    <color name="gray">#D6D6D6</color>
+    <color name="bad">#FFDCCF</color>
+    <color name="good">#CAFCD5</color>
+
+    <color name="palette_1">#e63946</color>
+    <color name="palette_2">#f1faee</color>
+    <color name="palette_3">#a8dadc</color>
+    <color name="palette_4">#457b9d</color>
+    <color name="palette_5">#1d3557</color>
+    <color name="palette_5_dark">#031931</color>
+
+<!--    <color name="a_palette_1">#606c38</color>-->
+<!--    <color name="a_palette_2">#283618</color>-->
+<!--    <color name="a_palette_3">#fefae0</color>-->
+<!--    <color name="a_palette_4">#dda15e</color>-->
+<!--    <color name="a_palette_5">#bc6c25</color>-->
+
+<!--    <color name="rv_background">@color/palette_2</color>-->
+
+
+</resources>
